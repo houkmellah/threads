@@ -3,9 +3,11 @@
 
 import { authMiddleware } from "@clerk/nextjs";
 
+console.log("Middleware is loaded.");
 export default authMiddleware({
+  
   // An array of public routes that don't require authentication.
-  publicRoutes: ["/api/webhook/clerk"],
+  publicRoutes: ["/", "/api/webhook/clerk"],
 
   // An array of routes to be ignored by the authentication middleware.
   ignoredRoutes: ["/api/webhook/clerk"],
@@ -14,3 +16,5 @@ export default authMiddleware({
 export const config = {
   matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
 };
+
+console.log("Middleware is loaded.");
